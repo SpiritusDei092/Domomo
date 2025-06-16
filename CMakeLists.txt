@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project (SwitchBotBLE)
+project (Domomo)
 
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 20)
@@ -25,12 +25,14 @@ target_compile_definitions(domomolib PRIVATE BUILDING_LIBDOMOMO)
 target_include_directories(domomolib PUBLIC lib)
 
 # first app
-add_executable(SwitchBotBle main.cpp)
-target_link_libraries(SwitchBotBle PRIVATE domomolib)
+add_executable(Domomo main.cpp)
+target_link_libraries(Domomo PRIVATE domomolib)
 
 # Second app
-add_executable(Linky Linky.cpp)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Linky")
+add_executable(Linky Linky/Linky.cpp)
 target_link_libraries(Linky CURL::libcurl domomolib)
+endif()
 
 ### Polyspace Test 
 
