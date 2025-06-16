@@ -14,7 +14,7 @@ namespace global_ble {
 
 class LIBFOO_SHLIB_EXPORTED BluetoothSupervisor {
 public:
-    BluetoothSupervisor(std::unordered_map<std::string, std::vector<std::shared_ptr<BluetoothPeripheral>>> roomToPeripherals)
+    BluetoothSupervisor(std::unordered_map<std::string, std::vector<std::shared_ptr<BluetoothPeripheral>>> const& roomToPeripherals)
         : fRoomToPeripherals(roomToPeripherals) {}
 
     void init();

@@ -1,0 +1,11 @@
+[Unit]
+Description=Domomo ble
+After=network.target
+
+[Service]
+ExecStart=/home/gaara092/Documents/domomo_running/Domomo
+Restart=always
+User=gaara092
+
+[Install]
+WantedBy=multi-user.target
