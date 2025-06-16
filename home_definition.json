@@ -1,0 +1,30 @@
+{
+    "mqtt": {
+      "serverAddress": "127.0.0.1",
+      "clientId": "raspberryPi1"
+    },
+    "rooms": [
+      "salon",
+      "jardin"
+    ],
+
+    "periphs": [
+      {
+      "addr": "CF:B3:6E:3F:E8:23",
+      "room": "salon",
+      "idxdomoticz": 1,
+      "name": "Température/Humidité",
+      "mqttFormat": "%d;%u;1",
+      "type": "SwitchBot"
+      },
+      {
+      "addr": "D6:34:C5:86:40:81",
+      "room": "jardin",
+      "idxdomoticz": 2,
+      "name": "Température/Humidité",
+      "mqttFormat": "%d;%u;1",
+      "type": "SwitchBot"
+      }
+
+    ]
+}
