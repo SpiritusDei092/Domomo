@@ -29,12 +29,10 @@ int main(int argc, char **argv)
 
     global_ble::BluetoothSupervisor bleSupervisor(jsonSpecReader.getRoomToPeripherals());
 
-    bleSupervisor.init();
-
-    // connect 
-    mqtt::MqttPublisher mqttPublisher(jsonSpecReader.getMqttServer(), jsonSpecReader.getMqttClientId());
     
     do {
+        bleSupervisor.init();
+        mqtt::MqttPublisher mqttPublisher(jsonSpecReader.getMqttServer(), jsonSpecReader.getMqttClientId());
         if (!mqttPublisher.connect("domoticz/in")) {
             std::cerr << "Error while activating mqtt\n";
         } else {
