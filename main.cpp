@@ -14,15 +14,15 @@ using namespace tinyb;
 
 int main(int argc, char **argv)
 {
-    std::filesystem::path currentPath = std::filesystem::current_path();
-    std::filesystem::path defPath = currentPath / "home_definition.json";
-
+    if (argc < 2) {
+        std::cerr << "[Domomo] missing arguments\n";
+        return 1;
+    }
+    std::filesystem::path defPath = argv[1];
+    
     if (!std::filesystem::exists(defPath)) {
-        defPath = currentPath / ".." / "home_definition.json";
-        if (!std::filesystem::exists(defPath)) {
-            std::cerr << "definition file not found. Backup to know location";
-            exit(1);
-        }
+        std::cerr << "definition file not found.\n";
+        exit(1);
     }
     std::cout << "Found definition file " << defPath.string() << "\n";
     JsonSpecificationReader jsonSpecReader(defPath);

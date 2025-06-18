@@ -3,7 +3,7 @@ Description=Domomo ble
 After=network.target
 
 [Service]
-ExecStart=/home/gaara092/Documents/domomo_running/Domomo
+ExecStart=/home/gaara092/Documents/domomo_running/Domomo /home/gaara092/Documents/domomo_running/home_definition.json
 Restart=always
 User=gaara092
 
